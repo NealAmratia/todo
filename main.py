@@ -9,8 +9,23 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from auth import hash_password, verify_password, create_access_token, decode_access_token
 from fastapi import status
 from schemas import User, UserCreate, UserBase, Task as TaskSchema
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="ToDo List API")
+
+# Add this block after app creation
+origins = [
+    "http://127.0.0.1:5500",  # your frontend
+    "http://localhost:5500"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 

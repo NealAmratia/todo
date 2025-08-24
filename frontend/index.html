@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ToDo App</h1>
+
+    <section id="auth-section">
+        <h2>Register / Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="register()">Register</button>
+        <button onclick="login()">Login</button>
+        <p id="auth-message"></p>
+    </section>
+
+    <section id="tasks-section" style="display:none;">
+        <h2>Your Tasks</h2>
+        <input type="text" id="new-task-title" placeholder="Task title">
+        <input type="text" id="new-task-desc" placeholder="Description">
+        <button onclick="createTask()">Add Task</button>
+
+        <ul id="task-list"></ul>
+        <button onclick="logout()">Logout</button>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
